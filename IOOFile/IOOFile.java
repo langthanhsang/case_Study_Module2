@@ -1,9 +1,9 @@
 package CaseStudy2.IOOFile;
 
-import CaseStudy2.QuanLyHS.Login;
-import CaseStudy2.QuanLyHS.Student;
-import CaseStudy2.QuanLyHS.StudentManage;
-import CaseStudy2.QuanLyHS.User;
+import CaseStudy2.manager.Login;
+import CaseStudy2.Model.Student;
+import CaseStudy2.manager.StudentManage;
+import CaseStudy2.Model.User;
 
 import java.io.*;
 import java.util.ArrayList;
@@ -11,7 +11,7 @@ import java.util.ArrayList;
 public class IOOFile {
     public static void writeFile() {
         try {
-            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("caseStadyModdule2/src/CaseStudy2/IOOFile/Student.csv"));
+            BufferedWriter bufferedWriter = new BufferedWriter(new FileWriter("/Volumes/WorkSpace/Codegym/castudy3/caseStadyModdule2/src/CaseStudy2/IOOFile/Student.csv"));
             String something = "Id,HoTen,Tuoi,GioiTinh,SDT,Gmail,DiaChi,DiemTB";
             bufferedWriter.write(something);
             for (Student student : StudentManage.students) {
@@ -27,7 +27,7 @@ public class IOOFile {
     public static void writeUserFile() {
         BufferedWriter bufferedWriter = null;
         try {
-            bufferedWriter = new BufferedWriter(new FileWriter("caseStadyModdule2/src/CaseStudy2/IOOFile/User.txt"));
+            bufferedWriter = new BufferedWriter(new FileWriter("/Volumes/WorkSpace/Codegym/castudy3/caseStadyModdule2/src/CaseStudy2/IOOFile/User.txt"));
             String somthing = "User,Password";
             bufferedWriter.write(somthing);
             for (User user : Login.userList) {
@@ -48,7 +48,7 @@ public class IOOFile {
     public static ArrayList<Student> readFile() {
         ArrayList<Student> list = new ArrayList<>();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("caseStadyModdule2/src/CaseStudy2/IOOFile/Student.csv"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("/Volumes/WorkSpace/Codegym/castudy3/caseStadyModdule2/src/CaseStudy2/IOOFile/Student.csv"));
             String line = bufferedReader.readLine();
             while ((line = bufferedReader.readLine()) != null) {
                 String[] arr = line.split(",");
@@ -63,7 +63,7 @@ public class IOOFile {
     public static ArrayList<User> readUserFile() {
         ArrayList<User> list = new ArrayList<>();
         try {
-            BufferedReader bufferedReader = new BufferedReader(new FileReader("caseStadyModdule2/src/CaseStudy2/IOOFile/User.txt"));
+            BufferedReader bufferedReader = new BufferedReader(new FileReader("/Volumes/WorkSpace/Codegym/castudy3/caseStadyModdule2/src/CaseStudy2/IOOFile/User.txt"));
             String line = bufferedReader.readLine();
             while ((line = bufferedReader.readLine()) != null) {
                 String[] arr = line.split(",");

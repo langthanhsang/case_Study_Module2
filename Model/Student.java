@@ -1,4 +1,4 @@
-package CaseStudy2.QuanLyHS;
+package CaseStudy2.Model;
 
 public class Student {
     private String id;
@@ -87,17 +87,9 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Học Sinh{" +
-                "ID ='" + id + '\'' +
-                ", Họ Tên ='" + name + '\'' +
-                ", Tuổi ='" + age + '\'' +
-                ", Giới tính ='" + gender + '\'' +
-                ", SDT ='" + phone + '\'' +
-                ", Gmail ='" + gmail + '\'' +
-                ", Địa chỉ ='" + address + '\'' +
-                ", Điểm TB ='" + avg + '\'' +
-                '}';
+        return String.format("%-15s%-20s%-10s%-20s%-25s%-20s%-15s%-20s\n", id, name, age, gender, phone, gmail, address, avg);
     }
+
 
     public String display() {
         return id + "," + name + "," + age + "," + gender + "," + phone + "," + gmail + "," + address + "," + avg;

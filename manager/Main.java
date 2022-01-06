@@ -1,4 +1,4 @@
-package CaseStudy2.QuanLyHS;
+package CaseStudy2.manager;
 
 
 public class Main {

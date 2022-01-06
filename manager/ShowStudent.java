@@ -1,9 +1,10 @@
-package CaseStudy2.QuanLyHS;
+package CaseStudy2.manager;
 
 import java.util.Scanner;
 
-public class ShowStudent{
+public class ShowStudent {
     static Scanner sc = new Scanner(System.in);
+
     public static void show() {
         int choice;
         do {
@@ -16,22 +17,26 @@ public class ShowStudent{
             System.out.println("| 0 . Thoát                        |");
             System.out.println("| Mời bạn chọn                     |");
             System.out.println("|**********************************|");
-             choice = Integer.parseInt(sc.nextLine());
+            choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:
-                    StudentManage.showALL();
+                    Header.header();
+                    StudentManage.displayAll();
                     break;
                 case 2:
+                    Header.header();
                     StudentManage.showHSG();
                     break;
                 case 3:
+                    Header.header();
                     StudentManage.showHSK();
                     break;
                 case 4:
+                    Header.header();
                     StudentManage.showHSTB();
                     break;
             }
 
-        }while ( choice != 0 ) ;
+        } while ( choice != 0 );
     }
 }

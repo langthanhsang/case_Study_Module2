@@ -1,10 +1,11 @@
-package CaseStudy2.QuanLyHS;
+package CaseStudy2.manager;
 
 
 import CaseStudy2.Exception.AgeException;
 import CaseStudy2.Exception.ScoreException;
 import CaseStudy2.IOOFile.IOOFile;
 import CaseStudy2.Regex.*;
+import CaseStudy2.Model.Student;
 
 import java.util.ArrayList;
 import java.util.Comparator;
@@ -17,7 +18,7 @@ public class StudentManage {
     public StudentManage() {
     }
 
-    public static void showALL() {
+    public static void displayAll() {
         for (Student student : students) {
             System.out.println(student);
         }
@@ -265,17 +266,17 @@ public class StudentManage {
         }
     }
 
-    public static void sortTheoTen() {
+    public static void sortByName() {
         students.sort(new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
                 return o1.getname().compareTo(o2.getname());
             }
         });
-        showALL();
+        displayAll();
     }
 
-    public static void sortTheoDiem() {
+    public static void sortByPoint() {
         students.sort(new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
@@ -288,10 +289,10 @@ public class StudentManage {
                 }
             }
         });
-        showALL();
+        displayAll();
     }
 
-    public static void sortTheoTuoi() {
+    public static void sortByAge() {
         students.sort(new Comparator<Student>() {
             @Override
             public int compare(Student o1, Student o2) {
@@ -299,11 +300,11 @@ public class StudentManage {
                 else return -1;
             }
         });
-        showALL();
+        displayAll();
     }
 
     public static void searchHS() {
-        int choice;
+        int choice = 100;
         do {
             System.out.println("|******************************************************************|");
             System.out.println("|                       ----Menu----                               |");
@@ -311,11 +312,17 @@ public class StudentManage {
             System.out.println("| 2. Tìm kiếm nhiều học sinh cùng Họ hoặc Tên hoặc ký tự liên quan |");
             System.out.println("| 0. Thoát                                                         |");
             System.out.println("|******************************************************************|");
-            choice = Integer.parseInt(sc.nextLine());
+            try {
+                choice = Integer.parseInt(sc.nextLine());
+            }catch (Exception e) {
+                System.err.println("tìm kiếm theo gì bạn ơi!");;
+            }
+
             switch (choice) {
                 case 1:
                     System.out.println("Nhập vào id :");
                     String id = sc.nextLine();
+                    Header.header();
                     boolean check = false;
                     for (Student student : students) {
                         if (student.getId().equals(id)) {
@@ -333,9 +340,10 @@ public class StudentManage {
                 case 2:
                     System.out.println("Nhập vào tên :");
                     String name = sc.nextLine();
+                    Header.header();
                     boolean check2 = false;
                     for (Student student : students) {
-                        if (student.getname().equals(name)) {
+                        if (student.getname().contains(name)) {
                             System.out.println(student);
                             check2 = true;
                         }

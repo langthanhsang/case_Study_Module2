@@ -1,4 +1,4 @@
-package CaseStudy2.QuanLyHS;
+package CaseStudy2.manager;
 
 import java.util.Scanner;
 
@@ -19,16 +19,17 @@ public class SortStudent {
             choice = Integer.parseInt(sc.nextLine());
             switch (choice) {
                 case 1:
-                    StudentManage.sortTheoTen();
+                    Header.header();
+                    StudentManage.sortByName();
                     break;
                 case 2:
-                    StudentManage.sortTheoDiem();
+                    Header.header();
+                    StudentManage.sortByPoint();
                     break;
                 case 3:
-                    StudentManage.sortTheoTuoi();
+                    Header.header();
+                    StudentManage.sortByAge();
                     break;
-                default:
-                    System.err.println("Vui lòng nhập đúng");
             }
         } while ( choice != 0 );
     }

@@ -1,7 +1,8 @@
-package CaseStudy2.QuanLyHS;
+package CaseStudy2.manager;
 
 import CaseStudy2.IOOFile.IOOFile;
 import CaseStudy2.Regex.Validate;
+import CaseStudy2.Model.User;
 
 import java.util.List;
 import java.util.Scanner;
