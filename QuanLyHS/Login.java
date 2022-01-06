@@ -1,7 +1,7 @@
 package CaseStudy2.QuanLyHS;
 
 import CaseStudy2.IOOFile.IOOFile;
-import CaseStudy2.Regex.UserPassRegex;
+import CaseStudy2.Regex.Validate;
 
 import java.util.List;
 import java.util.Scanner;
@@ -154,7 +154,7 @@ public class Login {
             try {
                 System.out.println("Tài khoản");
                 String username = sc.nextLine();
-                if (UserPassRegex.validate(username)) {
+                if (Validate.validateUser(username)) {
                     boolean exit = false;
                     for (User user : userList) {
                         if (user.getUsername().equalsIgnoreCase(username)) {
@@ -177,7 +177,7 @@ public class Login {
             try {
                 System.out.println("Mật khẩu");
                 String password = sc.nextLine();
-                if (UserPassRegex.validate(password)) {
+                if (Validate.validateUser(password)) {
                     return password;
                 } else throw new Exception();
             } catch (Exception e) {

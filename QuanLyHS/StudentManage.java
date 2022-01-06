@@ -66,7 +66,7 @@ public class StudentManage {
             try {
                 System.out.println("Nhập ID");
                 String id = sc.nextLine();
-                if (IDRegex.validate(id)) {
+                if (Validate.validateId(id)) {
                     boolean check = true;
                     for (Student student : students) {
                         if (student.getId().equals(id)) {
@@ -94,7 +94,7 @@ public class StudentManage {
             try {
                 System.out.println("Nhập số điện thoại");
                 String number = sc.nextLine();
-                if (PhoneNumberRegex.validate(number)) {
+                if (Validate.validateNumber(number)) {
                     boolean check = true;
                     for (Student student : students) {
                         if (student.getavg().equals(number)) {
@@ -119,7 +119,7 @@ public class StudentManage {
             try {
                 System.out.println("Nhập họ & tên");
                 String name = sc.nextLine();
-                if (NameRegex.validate(name)) {
+                if (Validate.validateName(name)) {
                     return name;
                 } else {
                     throw new Exception();
@@ -135,7 +135,7 @@ public class StudentManage {
             try {
                 System.out.println("Nhập tuổi");
                 String age = sc.nextLine();
-                if (AgeRegex.validate(age)) {
+                if (Validate.validateAge(age)) {
                     if (Integer.parseInt(age) < 18 || Integer.parseInt(age) > 70) {
                         throw new AgeException();
                     } else {
@@ -157,7 +157,7 @@ public class StudentManage {
             try {
                 System.out.println("Giới tính");
                 String gender = sc.nextLine();
-                if (GenderRegex.validate(gender)) {
+                if (Validate.validateGender(gender)) {
                     return gender;
                 } else {
                     throw new Exception();
@@ -174,7 +174,7 @@ public class StudentManage {
             try {
                 System.out.println("Nhập vào gmail");
                 String gmail = sc.nextLine();
-                if (GmailRegex.validate(gmail)) {
+                if (Validate.validateGmail(gmail)) {
                     boolean check = true;
                     for (Student student : students) {
                         if (student.getGmail().equals(gmail)) {
@@ -207,7 +207,7 @@ public class StudentManage {
             try {
                 System.out.println("Nhập điểm trung bình");
                 String diemTB = sc.nextLine();
-                if (ScoreRegex.validate(diemTB)) {
+                if (Validate.validateScore(diemTB)) {
                     if (Double.parseDouble(diemTB) < 0 || Double.parseDouble(diemTB) > 10) {
                         throw new ScoreException();
                     } else return diemTB;
